@@ -15,6 +15,40 @@ Intake intake(IntakePort);
 Wings wings(PistonPort1, PistonPort2, HangPort, HangPort2);
 
 void SixTriballAutonomous() {
+    ppchassis.setPose(0, 0, 0);
+
+    intake.spinIntake(-1 * IntakeSpeed);
+    ppchassis.moveToPoint(-32, 50, 2000, 100);
+    ppchassis.waitUntilDone();
+    
+    ppchassis.turnTo(-1000, 50, 800, 90);
+    ppchassis.waitUntilDone();
+
+    intake.spinIntake(IntakeSpeed);
+    ppchassis.moveToPoint(2, 50, 1200, 100);
+    ppchassis.waitUntilDone();
+    
+    intake.spinIntake(0);
+    ppchassis.turnTo(-33, 23, 800, 90);
+    ppchassis.waitUntilDone();
+
+    intake.spinIntake(-1 * IntakeSpeed);
+    ppchassis.moveToPoint(-29, 23, 1500, 100);
+    ppchassis.waitUntilDone();
+    
+    ppchassis.turnTo(4, 50, 800, 90);
+    ppchassis.waitUntilDone();
+
+    intake.spinIntake(IntakeSpeed);
+    ppchassis.moveToPoint(4, 50, 1500, 100);
+    ppchassis.waitUntilDone();
+    
+    ppchassis.turnTo(0, -8, 800, 90);
+    ppchassis.waitUntilDone();
+
+    ppchassis.moveToPoint(0, -8, 1200, 100);
+    ppchassis.waitUntilDone();
+
     
 }
 
@@ -48,13 +82,15 @@ void oppositeSideWPAutonomous() {
     ppchassis.moveToPose(7.5, 19, -56, 1500, {.minSpeed = 110});
     ppchassis.waitUntilDone();
     
-    ppchassis.moveToPose(-13, -4, -148, 1500, {.minSpeed = 90});
+    ppchassis.moveToPose(-13, -12, -148, 1500, {.minSpeed = 90});
+    ppchassis.waitUntilDone();
+    
+    wings.activateWings(true);
+    ppchassis.turnTo(14, -24, 800, 90);
     ppchassis.waitUntilDone();
 
-    ppchassis.turnTo(14, 20, 800, 90);
-    ppchassis.waitUntilDone();
-
-    ppchassis.moveToPose(14, 20, -230, 2000, {.minSpeed = 110});
+    wings.activateWings(false);
+    ppchassis.moveToPose(34, -30, -230, 2000, {.minSpeed = 110});
     ppchassis.waitUntilDone();
 
     intake.spinIntake(IntakeSpeed);
@@ -63,15 +99,17 @@ void oppositeSideWPAutonomous() {
 void programmingSkills() {
     ppchassis.setPose(0, 0, 0);
 
-    ppchassis.moveToPose(-13, 7, 66, 2000, {.minSpeed = 110});
+    ppchassis.moveToPose(-15, 6, 85, 2000, {.minSpeed = 110});
     ppchassis.waitUntilDone();
 
-    ppchassis.turnTo(74, 63, 800);
+    ppchassis.turnTo(74, 57, 800);
     ppchassis.waitUntilDone();
 
     wings.activateWings(true);
     cata.launch(CataSpeed);
-    pros::delay(2000);
+    pros::delay(30000);
+
+    cata.launch(0);
 
     wings.activateWings(false);
     ppchassis.moveToPose(-9, 6, 180, 1000, {.minSpeed = 110});
@@ -95,16 +133,16 @@ void programmingSkills() {
     ppchassis.turnTo(71, -1000, 800);
     ppchassis.waitUntilDone();
 
-    ppchassis.moveToPoint(92, 6, 1500, false);
+    ppchassis.moveToPoint(102, 6, 1500, false);
     ppchassis.waitUntilDone();
 
-    ppchassis.turnTo(96, 26, 800, false);
+    ppchassis.turnTo(102, 26, 800, false);
     ppchassis.waitUntilDone();
 
-    ppchassis.moveToPoint(96, 26, 1000, false);
+    ppchassis.moveToPoint(105, 26, 1000, false);
     ppchassis.waitUntilDone();
 
-    ppchassis.moveToPoint(98, 14, 1000);
+    ppchassis.moveToPoint(98, 10, 1000);
     ppchassis.waitUntilDone();
 
     ppchassis.turnTo(61, 39, 800);
@@ -136,7 +174,7 @@ void programmingSkills() {
     ppchassis.turnTo(130, 120, 1200, false);
     ppchassis.waitUntilDone();
 
-    ppchassis.moveToPoint(112, 110, 2000, false);
+    ppchassis.moveToPoint(112, 100, 2000, false);
     ppchassis.waitUntilDone();
 
     ppchassis.turnTo(108, 72, 800, false);

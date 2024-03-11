@@ -25,12 +25,6 @@ pros::MotorGroup rightMotors({rF, rM, rB}); // right motor group
 // Inertial Sensor on port 2
 pros::Imu imu(7);
 
-
-
-
-
-
-
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&leftMotors, // left motor group
                               &rightMotors, // right motor group
@@ -136,9 +130,9 @@ void autonomous() {
     Intake intake(IntakePort);
     Wings wings(PistonPort1, PistonPort2, HangPort, HangPort2);
 
-	// SixTriballAutonomous();
+	SixTriballAutonomous();
 	// oppositeSideWPAutonomous();
-	programmingSkills();
+	// programmingSkills();
 	// disruptAuton();
 	// testingDrive();
 	// testingTurn();
@@ -147,7 +141,7 @@ void autonomous() {
 
 /**
  * Runs in driver control
- */
+*/
 void opcontrol() {
     Catapult cata(CataPort, SmallCataPort); 
     Intake intake(IntakePort);
